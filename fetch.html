@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    </head>
+
+    <body>
+        <div id="posts"></div>
+        <script>
+            async function getData(){
+                const resp=await axios.get("https://jsonplaceholder.typicode.com/posts");
+                console.log(resp.data)
+                for(let i=0;i<resp.data.length;i++){
+                document.querySelector("#posts").innerHTML+="<div>"+resp.data[i].body+"</div>";
+            }
+        }
+            getData();
+        </script>
+    </body>
+</html>
